@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Product Management System</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Login Header -->
+        <header class="login-header">
+            <div class="login-logo">
+                <h1>Product Management System</h1>
+                <p>Secure Access Portal</p>
+            </div>
+        </header>
+
+        <!-- Login Content -->
+        <div class="login-content">
+            <!-- Role Selection -->
+            <div id="roleSelection" class="login-section active">
+                <h2>Select Login Type</h2>
+                <div class="role-buttons">
+                    <button class="role-btn admin-role-btn" onclick="switchToAdminLogin()">
+                        <div class="role-icon">&#128084;</div>
+                        <h3>Admin Login</h3>
+                        <p>Manage products and inventory</p>
+                    </button>
+                    <button class="role-btn customer-role-btn" onclick="switchToCustomerLogin()">
+                        <div class="role-icon">&#128100;</div>
+                        <h3>Customer Login</h3>
+                        <p>Browse and shop products</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Admin Login Form -->
+            <div id="adminLoginForm" class="login-section" style="display: none;">
+                <div class="back-button">
+                    <button onclick="backToRoleSelection()" class="back-btn">&#8592; Back</button>
+                </div>
+                <h2>Admin Login</h2>
+                <form id="adminForm" onsubmit="handleAdminLogin(event)">
+                    <div class="form-group">
+                        <label for="adminUsername">Username</label>
+                        <input type="text" id="adminUsername" required placeholder="Enter admin username">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminPassword">Password</label>
+                        <input type="password" id="adminPassword" required placeholder="Enter admin password">
+                    </div>
+                    <button type="submit" class="login-btn blue-btn">Login as Admin</button>
+                </form>
+                <div id="adminLoginMsg" class="login-message"></div>
+                <p style="text-align:center; margin-top:14px; font-size:0.9rem;">
+                    Don't have an account?
+                    <a href="#" onclick="showRegisterForm('admin'); return false;" style="color:#4f8ef7; text-decoration:underline;">Register as Admin</a>
+                </p>
+                <!-- Admin Register Form -->
+                <div id="adminRegisterSection" style="display:none; margin-top:16px; border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
+                    <h3 style="margin-bottom:12px;">Register Admin Account</h3>
+                    <form id="adminRegisterForm" onsubmit="handleRegister(event, true)">
+                        <div class="form-group">
+                            <label for="adminRegName">Full Name</label>
+                            <input type="text" id="adminRegName" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="adminRegUsername">Username</label>
+                            <input type="text" id="adminRegUsername" required placeholder="Choose a username">
+                        </div>
+                        <div class="form-group">
+                            <label for="adminRegPassword">Password (min 6 chars)</label>
+                            <input type="password" id="adminRegPassword" required minlength="6" placeholder="Choose a password">
+                        </div>
+                        <button type="submit" class="login-btn blue-btn">Register</button>
+                        <button type="button" class="back-btn" onclick="hideRegisterForm('admin')" style="margin-left:8px;">Cancel</button>
+                    </form>
+                    <div id="adminRegMsg" class="login-message"></div>
+                </div>
+            </div>
+
+            <!-- Customer Login Form -->
+            <div id="customerLoginForm" class="login-section" style="display: none;">
+                <div class="back-button">
+                    <button onclick="backToRoleSelection()" class="back-btn">&#8592; Back</button>
+                </div>
+                <h2>Customer Login</h2>
+                <form id="customerForm" onsubmit="handleCustomerLogin(event)">
+                    <div class="form-group">
+                        <label for="customerUsername">Username</label>
+                        <input type="text" id="customerUsername" required placeholder="Enter your username">
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPassword">Password</label>
+                        <input type="password" id="customerPassword" required placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="login-btn blue-btn">Login as Customer</button>
+                </form>
+                <div id="customerLoginMsg" class="login-message"></div>
+                <p style="text-align:center; margin-top:14px; font-size:0.9rem;">
+                    Don't have an account?
+                    <a href="#" onclick="showRegisterForm('customer'); return false;" style="color:#4f8ef7; text-decoration:underline;">Register as Customer</a>
+                </p>
+                <!-- Customer Register Form -->
+                <div id="customerRegisterSection" style="display:none; margin-top:16px; border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
+                    <h3 style="margin-bottom:12px;">Register Customer Account</h3>
+                    <form id="customerRegisterForm" onsubmit="handleRegister(event, false)">
+                        <div class="form-group">
+                            <label for="custRegName">Full Name</label>
+                            <input type="text" id="custRegName" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="custRegUsername">Username</label>
+                            <input type="text" id="custRegUsername" required placeholder="Choose a username">
+                        </div>
+                        <div class="form-group">
+                            <label for="custRegPassword">Password (min 6 chars)</label>
+                            <input type="password" id="custRegPassword" required minlength="6" placeholder="Choose a password">
+                        </div>
+                        <button type="submit" class="login-btn blue-btn">Register</button>
+                        <button type="button" class="back-btn" onclick="hideRegisterForm('customer')" style="margin-left:8px;">Cancel</button>
+                    </form>
+                    <div id="custRegMsg" class="login-message"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/login.js"></script>
+</body>
+</html>
