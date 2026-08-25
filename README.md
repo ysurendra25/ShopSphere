@@ -1,28 +1,58 @@
-# ShopSphere — Secure E-Commerce Backend
+# ShopSphere — Secure E-Commerce Web Application
 
-A secure e-commerce backend built with Java and Spring Boot, featuring JWT-based authentication and RESTful APIs for product, cart, and order management.
+A full-stack e-commerce application built with Java, Spring Boot, Spring Security (JWT), MySQL, and a custom HTML/CSS/JavaScript frontend.
 
 ## Tech Stack
 
 | Layer | Technologies |
 |-------|-------------|
-| Language | Java |
-| Framework | Spring Boot, Spring MVC, Spring Security |
+| Language | Java, JavaScript |
+| Backend | Spring Boot, Spring MVC, Spring Security |
 | Auth | JWT (JSON Web Tokens) |
 | Persistence | Spring Data JPA, Hibernate |
 | Database | MySQL |
+| Frontend | HTML5, CSS3, JavaScript (ES6+) |
 | Build | Maven |
 | Testing | Postman |
 | Version Control | Git, GitHub |
 
 ## Features
 
-- **JWT Authentication & Authorization** — Secure login/register with token-based auth using Spring Security
-- **Product Management** — CRUD APIs for product catalog (list, add, update, delete)
-- **Cart Management** — Add to cart, update quantity, remove items
-- **Order Management** — Place orders, view order history, order status
-- **Role-Based Access Control** — Admin and customer roles with differentiated permissions
-- **REST API Design** — 10+ RESTful endpoints tested via Postman
+### Authentication & Authorization
+- **JWT-based authentication** — Secure login/register with token-based auth using Spring Security
+- **Role-Based Access Control** — Separate admin and customer roles with differentiated permissions
+
+### Admin Dashboard
+- Add, edit, and delete products
+- Manage product catalog
+- View and manage customer orders
+- Admin-only access control
+
+### Customer Dashboard
+- Browse product catalog
+- Add products to cart
+- Place orders
+- View order history
+
+### Product Management
+- Product listing page with details (name, price, description, image)
+- CRUD operations via REST APIs
+- Search and filter products
+
+### Cart & Order Management
+- Add to cart, update quantity, remove items
+- Place orders with automatic order total calculation
+- View order history and order status
+
+## Frontend Pages
+
+| Page | File | Description |
+|------|------|-------------|
+| Login / Landing | `index.html`, `login.js` | User login & registration with JWT |
+| Admin Dashboard | `admin-dashboard.html`, `admin.js` | Admin panel for product & order management |
+| Customer Dashboard | `customer-dashboard.html`, `customer.js` | Customer shopping interface |
+| Products | `products.html`, `products.js` | Product browsing and listing |
+| Styling | `styles.css` | Full CSS styling (25 KB) |
 
 ## API Endpoints
 
@@ -45,17 +75,29 @@ A secure e-commerce backend built with Java and Spring Boot, featuring JWT-based
 
 ```
 ShopSphere/
-├── src/main/java/
-│   ├── config/          # Security & JWT configuration
-│   ├── controller/      # REST API controllers
-│   ├── model/           # Entity classes (Product, Cart, Order, User)
-│   ├── repository/      # Spring Data JPA repositories
-│   ├── service/         # Business logic layer
-│   └── security/        # JWT filter & auth logic
+├── src/main/java/com/example/
+│   ├── config/              # Security & JWT configuration
+│   ├── controller/          # REST API controllers
+│   ├── model/               # Entity classes (Product, Cart, Order, User)
+│   ├── repository/          # Spring Data JPA repositories
+│   ├── service/             # Business logic layer
+│   └── security/            # JWT filter & auth logic
 ├── src/main/resources/
-│   └── application.properties  # MySQL config
-├── pom.xml              # Maven dependencies
-└── mvnw                 # Maven wrapper
+│   ├── static/              # Frontend files
+│   │   ├── index.html        # Login / landing page
+│   │   ├── admin-dashboard.html
+│   │   ├── customer-dashboard.html
+│   │   ├── products.html
+│   │   ├── admin.js          # Admin dashboard logic
+│   │   ├── customer.js       # Customer shopping logic
+│   │   ├── products.js       # Product listing logic
+│   │   ├── login.js          # JWT login/register logic
+│   │   ├── app.js            # Main app logic
+│   │   ├── styles.css        # Full CSS styling
+│   │   └── images/           # Product images
+│   └── application.properties # MySQL config
+├── pom.xml                   # Maven dependencies
+└── mvnw                      # Maven wrapper
 ```
 
 ## How to Run
@@ -79,11 +121,7 @@ ShopSphere/
    ./mvnw spring-boot:run
    ```
 
-4. **Test the APIs** — Import the endpoints into Postman and start testing
-
-## Status
-
-Currently containerizing for Railway deployment. Frontend (React) is work in progress.
+4. **Access the app** — Open `http://localhost:8080` in your browser
 
 ## Author
 
