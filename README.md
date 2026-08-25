@@ -52,7 +52,7 @@ A full-stack e-commerce application built with Java, Spring Boot, Spring Securit
 | Admin Dashboard | `admin-dashboard.html`, `admin.js` | Admin panel for product & order management |
 | Customer Dashboard | `customer-dashboard.html`, `customer.js` | Customer shopping interface |
 | Products | `products.html`, `products.js` | Product browsing and listing |
-| Styling | `styles.css` | Full CSS styling (25 KB) |
+| Styling | `styles.css` | Full CSS styling
 
 ## API Endpoints
 
@@ -99,29 +99,6 @@ ShopSphere/
 ├── pom.xml                   # Maven dependencies
 └── mvnw                      # Maven wrapper
 ```
-
-## How to Run
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/ysurendra25/ShopSphere.git
-   cd ShopSphere
-   ```
-
-2. **Configure MySQL** — Update `src/main/resources/application.properties`:
-   ```properties
-   spring.datasource.url=jdbc:mysql://localhost:3306/shopsphere
-   spring.datasource.username=your_username
-   spring.datasource.password=your_password
-   spring.jpa.hibernate.ddl-auto=update
-   ```
-
-3. **Build and run**
-   ```bash
-   ./mvnw spring-boot:run
-   ```
-
-4. **Access the app** — Open `http://localhost:8080` in your browser
 
 ## Author
 
